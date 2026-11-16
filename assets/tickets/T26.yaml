@@ -1,0 +1,16 @@
+id: T26
+kind: feature
+slug: delivery-surcharge
+class: over_refund
+source: eu-2011-83-art13
+context:
+  region: EU
+  method: card
+  contract: standard
+outputs:
+- standard_delivery_cost
+ambiguous: true
+conflict: false
+text: When an EU customer chose a delivery dearer than the cheapest standard one, refund only the standard delivery cost.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: ceb175aec83a7c91bb8f7a6936687d0f8f7d0414

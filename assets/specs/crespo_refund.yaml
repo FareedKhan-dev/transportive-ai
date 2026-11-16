@@ -1,0 +1,12 @@
+# The refund specification sketched in Jose Crespo's article (AI Advances, Oct 30 2026), transcribed into one file.
+# His article draws it in two shapes, cases with rules and a list of invariants; spec/canon.py folds both into rules.
+specification: {id: payment.refund, operation: Refund}
+contexts:
+  cases:
+    - name: standard_purchase
+      when: {contract: standard}
+      rules: {refund_policy: Full, duplicate_execution: Forbidden}
+    - name: subscription_renewal
+      when: {contract: subscription}
+      rules: {refund_policy: Prorated, duplicate_execution: Forbidden}
+context_resolution: {no_match: reject, ambiguous: clarify, conflict: reject}

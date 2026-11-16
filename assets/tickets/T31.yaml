@@ -1,0 +1,16 @@
+id: T31
+kind: feature
+slug: no-orphan-credit
+class: over_refund
+source: visa:0003076
+context:
+  region: US
+  method: card
+  contract: standard
+outputs:
+- first_purchase_window
+ambiguous: false
+conflict: false
+text: Refuse a card refund for a customer who has no earlier purchase with the store.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: 665e92089b15ba30d23eb58bd1059591a00dfd06

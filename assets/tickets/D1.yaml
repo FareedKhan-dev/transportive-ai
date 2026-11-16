@@ -1,0 +1,14 @@
+id: D1
+kind: dev
+slug: race-partial-refund-dev
+class: duplicate_transfer
+source: medusa#16012
+context:
+  region: EU
+  method: card
+  contract: standard
+ambiguous: false
+conflict: false
+text: Two partial refunds of 60.00 sent at the same moment for a 100.00 EU card transaction can both be accepted. Make concurrent partial refunds safe.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: 11f99e330c16fdf62244abb936db0d1454ffc23e

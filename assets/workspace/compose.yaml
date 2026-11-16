@@ -1,0 +1,36 @@
+# The room for one candidate: a primary, a standby that applies each commit late, and the app.
+# workspace/sandbox.py passes APPLY_DELAY (REPLICA_LAG_S in config.py) and mounts the worktree at /app.
+services:
+  primary:
+    image: postgres:18
+    environment: {POSTGRES_USER: saleor, POSTGRES_PASSWORD: saleor, POSTGRES_DB: saleor}
+    command: [postgres, -c, wal_level=replica, -c, max_wal_senders=4, -c, hot_standby=on]
+    volumes: [./primary-init.sh:/docker-entrypoint-initdb.d/10-replication.sh:ro]
+    healthcheck: {test: [CMD, pg_isready, -U, saleor], interval: 1s, retries: 60}
+    networks: [room]
+  standby:
+    image: postgres:18
+    environment: {PGPASSWORD: replica, APPLY_DELAY: "${APPLY_DELAY:-2000ms}"}
+    entrypoint: [bash, /standby.sh]
+    volumes: [./standby.sh:/standby.sh:ro]
+    depends_on: {primary: {condition: service_healthy}}
+    healthcheck: {test: [CMD, pg_isready, -U, saleor], interval: 1s, retries: 120}
+    networks: [room]
+  app:
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM saleor-pin
+        RUN uv pip install --system hypothesis
+    environment:
+      DATABASE_URL: postgres://saleor:saleor@primary:5432/saleor
+      DATABASE_URL_REPLICA: postgres://saleor:saleor@standby:5432/saleor
+      PYTHONPATH: /opt/transportive
+      SECRET_KEY: room
+    volumes:
+      - ../checks:/checks:ro
+      - ../../transportive:/opt/transportive/transportive:ro
+    depends_on: {standby: {condition: service_healthy}}
+    networks: [room]
+networks:
+  room: {internal: true}

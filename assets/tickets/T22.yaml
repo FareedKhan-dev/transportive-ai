@@ -1,0 +1,16 @@
+id: T22
+kind: replay
+slug: wrong-method-eu
+class: wrong_method
+source: eu-2011-83-art13
+context:
+  region: EU
+  method: card
+  contract: standard
+outputs:
+- fallback_method
+ambiguous: true
+conflict: false
+text: EU card refunds can go back by a different means than the payment came. Return the money the way the rules of this context require.
+bug_commit: cc32cc3ff27bf9585da605161f7a82f4a10f3a0d
+fix_commit: f74413472bb507f5b22cd22913c67a42371d5f54

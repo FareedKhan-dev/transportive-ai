@@ -1,0 +1,14 @@
+Idempotency keys are up to 255 characters long.
+For API v1, you can remove keys from the system automatically after they’re at least 24 hours old. We generate a new request if a key is reused after the original is pruned.
+Stripe retains keys for at least 24 hours and can remove them after that. Reusing a key after it’s removed can execute a new request.
+The idempotency layer compares incoming parameters to those of the original request and errors if they’re not the same to prevent accidental misuse.
+Sending the same idempotency key with different parameters produces an error indicating that the request didn’t match the original.
+For API v1, Stripe saves the status code and body of the first request made with a given idempotency key after endpoint execution begins. Retries with the same key return the saved response, including `500` errors.
+For API v1, we save results only after the execution of an endpoint begins. If incoming parameters fail validation, or the request conflicts with another request that’s executing concurrently, we don’t save the idempotent result because no API endpoint initiates the execution. You can retry these requests.
+For API v1, Stripe caches `500` responses from `POST` requests that use an idempotency key. Retrying with the same key returns the cached response while Stripe retains it.
+For API v1, all `POST` requests accept idempotency keys. Don’t send idempotency keys in `GET` and `DELETE` requests because it has no effect. These requests are idempotent by definition.
+If a `409` indicates that another request with the same key is still executing, wait and retry with that key and the same parameters. A new key can start a second operation.
+To identify a previously executed response that’s being replayed from the server, look for the header `Idempotent-Replayed: true`.
+`idempotency_key_in_use`: The idempotency key provided is currently being used in another request. This occurs if your integration is making duplicate requests simultaneously.
+API v1 if they use the same idempotency key and occur within 24 hours of each other.
+API v2 if they use the same idempotency key, are made to the same API, occur within the scope of the same account or sandbox, and occur within 30 days of each other.

@@ -1,0 +1,14 @@
+id: T06
+kind: replay
+slug: race-partial-refund-br
+class: duplicate_transfer
+source: medusa#16012
+context:
+  region: BR
+  method: boleto
+  contract: standard
+ambiguous: false
+conflict: false
+text: Two partial refunds sent at the same moment for one Brazilian boleto transaction can together ask for more than was charged. Make concurrent refund requests safe.
+bug_commit: cf95ecf8716e93b9e451cecf2e4f590182ff7add
+fix_commit: 67f635b7b220c2ef61e00c20d26f5a5a52edf119

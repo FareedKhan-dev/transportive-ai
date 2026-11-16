@@ -1,0 +1,16 @@
+id: T29
+kind: feature
+slug: prorated-subscription
+class: over_refund
+source: crespo:subscription_renewal
+context:
+  region: US
+  method: card
+  contract: subscription
+outputs:
+- proration_basis
+ambiguous: true
+conflict: false
+text: Refund a cancelled US card subscription for the unused part of its current period.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: 6ad01cd10d719752c5cdad8a7dac126f63d8a846

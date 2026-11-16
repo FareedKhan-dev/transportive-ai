@@ -1,0 +1,14 @@
+id: T02
+kind: live
+slug: saleor-19852-retry-repairs-totals
+class: lost_update
+source: saleor#19852
+context:
+  method: card
+  contract: standard
+ambiguous: false
+conflict: false
+text: A transactionEventReport retry after an interrupted first delivery answers alreadyProcessed while charged_value stays 0 (saleor#19852). A retried report must leave the stored event and the transaction
+  totals consistent.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: c83c615b040bb6bec0ee63fcdf4c78ce87679e33

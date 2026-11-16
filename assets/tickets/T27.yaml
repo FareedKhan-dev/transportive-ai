@@ -1,0 +1,16 @@
+id: T27
+kind: feature
+slug: withhold-until-return
+class: deadline_breach
+source: eu-2011-83-art13
+context:
+  region: EU
+  method: card
+  contract: standard
+outputs:
+- proof_of_return
+ambiguous: true
+conflict: false
+text: Let EU merchants hold a withdrawal refund until the goods come back or the customer shows proof of sending them.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: 17987ba53222878a915cd41bd1dc8fb930ccf7bc

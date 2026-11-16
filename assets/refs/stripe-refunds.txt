@@ -1,0 +1,21 @@
+Refunds can only be sent back to the original payment method used in a charge. You can’t send a refund to a different destination, such as another card or bank account.
+Refunds to expired or canceled cards are handled by the customer’s card issuer and, in most cases, credited to the customer’s replacement card. If no replacement exists, the card issuer usually delivers the refund to the customer using an alternate method (for example, check or bank account deposit). In rare cases, a refund back to a card might fail.
+Creating a new refund will refund a charge that has previously been created but not yet refunded. Funds will be refunded to the credit or debit card that was originally charged.
+For some payment methods without native refund support (for example, Konbini, PromptPay, Boleto, and bank transfers), Stripe needs to collect bank account details from your customer before it can process the refund. In these cases, the refund enters the `requires_action` status and Stripe emails your customer to request their bank information.
+You can issue more than one refund against a charge, but you can’t refund a total greater than the original charge amount.
+You can also refund only part of a PaymentIntent by specifying an amount.
+You can optionally refund only part of a charge. You can do so multiple times, until the entire charge has been refunded.
+Once entirely refunded, a charge can’t be refunded again. This method will raise an error when called on an already-refunded charge, or when trying to refund more money than is left on a charge.
+A positive integer in the smallest currency unit representing how much of this charge to refund. Can refund only up to the remaining, unrefunded amount of the charge.
+A refund can fail if the customer’s bank or card issuer can’t process it. For example, a closed bank account or a problem with the card can cause a refund to fail. When this happens, the bank returns the refunded amount to Stripe, and Stripe adds it back to your Stripe account balance. This process can take up to 30 days from the post date.
+When using the API, a Refund object’s status transitions to `failed` and includes these attributes:
+In the rare instance that a refund fails, Stripe notifies you using the `refund.failed` event (see all refund-related events). If this occurs, you need to arrange an alternative way to provide your customer with a refund.
+`refund.failed`: Sent when a refund has failed.
+`charge.refund.updated` (Deprecated): Sent when the refund is updated, only for refunds with a corresponding charge. Listen to `refund.updated` for updates on all refunds instead.
+Status of the refund. This can be `pending`, `requires_action`, `succeeded`, `failed`, or `canceled`. Learn more about failed refunds.
+Refunds use your available Stripe balance (not including pending amounts). If your available balance doesn’t cover the amount of the refund, Stripe holds the refund as pending for card transactions (refunds for other payment method types fail) until your Stripe balance becomes sufficient.
+You can’t issue a refund outside the dispute process while the dispute is open.
+`charge_disputed`: The charge you’re attempting to refund has been charged back. See Disputes to learn how to respond to the dispute.
+`refund_disputed_payment`: You can’t refund a disputed payment.
+`charge_for_pending_refund_disputed`: A customer disputed the charge while the refund is pending. In this case, Stripe recommends accepting or challenging the dispute instead of refunding to avoid duplicate reimbursements to the customer.
+For bank debit payment methods such as SEPA Direct Debit, Bacs Direct Debit, ACH Direct Debit, ACSS (Canadian PADs), AU BECS Direct Debit, and NZ bank account debits, there’s a risk of double refund. If you proactively issue a refund while the customer’s bank also initiates a dispute, the customer might receive two credits for the same transaction. Refer to the refund guidelines for each payment method to avoid this situation.

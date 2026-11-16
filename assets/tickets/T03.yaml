@@ -1,0 +1,13 @@
+id: T03
+kind: live
+slug: saleor-19957-dealloc-conserves
+class: lost_update
+source: saleor#19957
+context:
+  contract: standard
+ambiguous: false
+conflict: false
+text: Deallocating an order with two lines on the same stock loses one of the decrements, so quantity_allocated drifts above the real allocations (saleor#19957). Allocated stock must equal the sum of its
+  allocation rows.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: caef8785e5844f9626496240a52d3d23ffac31ee

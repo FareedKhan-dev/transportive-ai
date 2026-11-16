@@ -1,0 +1,212 @@
+{
+ "sources": {
+  "customer_rows": {
+   "v": 824364,
+   "provisional": true
+  },
+  "cancel_lines": {
+   "v": 18744,
+   "provisional": true
+  },
+  "matched": {
+   "v": 17103,
+   "provisional": true
+  },
+  "histories": {
+   "v": 6315,
+   "provisional": true
+  },
+  "refunds_per_history": {
+   "v": 1.6,
+   "provisional": true
+  }
+ },
+ "workspace": {
+  "lag_s": {
+   "v": 2.0,
+   "provisional": true
+  },
+  "boot_s": {
+   "v": 38.4,
+   "provisional": true
+  }
+ },
+ "coder": {
+  "turns": {
+   "v": 5,
+   "provisional": true
+  },
+  "credits": {
+   "v": 0.0412,
+   "provisional": true
+  },
+  "cache_hits": {
+   "v": 4,
+   "provisional": true
+  }
+ },
+ "seal": {
+  "sha": {
+   "v": "5e2c0a9d81f7",
+   "provisional": true
+  },
+  "oracles": {
+   "v": 44,
+   "provisional": true
+  },
+  "valid": {
+   "v": 44,
+   "provisional": true
+  }
+ },
+ "pilot": {
+  "own_tests": {
+   "v": 87,
+   "provisional": true
+  },
+  "new_tests": {
+   "v": 2,
+   "provisional": true
+  },
+  "charged": {
+   "v": 100.0,
+   "provisional": true
+  },
+  "each": {
+   "v": 60.0,
+   "provisional": true
+  }
+ },
+ "recover": {
+  "candidates": {
+   "v": 47,
+   "provisional": true
+  },
+  "kept_code": {
+   "v": 14,
+   "provisional": true
+  }
+ },
+ "team": {
+  "tasks": {
+   "v": 1,
+   "provisional": true
+  },
+  "tests": {
+   "v": 3,
+   "provisional": true
+  }
+ },
+ "rings": {
+  "rounds": {
+   "v": 2,
+   "provisional": true
+  }
+ },
+ "mutation": {
+  "ring1": {
+   "v": 16,
+   "provisional": true
+  },
+  "ring2": {
+   "v": 1,
+   "provisional": true
+  },
+  "ring3": {
+   "v": 10,
+   "provisional": true
+  },
+  "ring4": {
+   "v": 6,
+   "provisional": true
+  },
+  "survived": {
+   "v": 6,
+   "provisional": true
+  },
+  "equivalent": {
+   "v": 5,
+   "provisional": true
+  },
+  "score_pct": {
+   "v": 97.1,
+   "provisional": true
+  },
+  "plain_killed": {
+   "v": 13,
+   "provisional": true
+  },
+  "plain_pct": {
+   "v": 38.2,
+   "provisional": true
+  }
+ },
+ "guard": {
+  "replayed": {
+   "v": 14,
+   "provisional": true
+  },
+  "refused": {
+   "v": 7,
+   "provisional": true
+  },
+  "double": {
+   "v": 6,
+   "provisional": true
+  },
+  "over": {
+   "v": 1,
+   "provisional": true
+  },
+  "passed": {
+   "v": 7,
+   "provisional": true
+  }
+ },
+ "impact": {
+  "files": {
+   "v": 1,
+   "provisional": true
+  },
+  "tickets": {
+   "v": 1,
+   "provisional": true
+  }
+ },
+ "replay": {
+  "histories": {
+   "v": 6315,
+   "provisional": true
+  },
+  "plain_broken": {
+   "v": 41,
+   "provisional": true
+  }
+ },
+ "receipt": {
+  "tests": {
+   "v": 2118,
+   "provisional": true
+  },
+  "killed": {
+   "v": 33,
+   "provisional": true
+  },
+  "of": {
+   "v": 34,
+   "provisional": true
+  },
+  "added": {
+   "v": 13,
+   "provisional": true
+  },
+  "removed": {
+   "v": 0,
+   "provisional": true
+  },
+  "sha": {
+   "v": "3b0e91c4d27a",
+   "provisional": true
+  }
+ }
+}

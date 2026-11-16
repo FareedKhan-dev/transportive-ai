@@ -1,0 +1,56 @@
+{
+ "prices": {
+  "opus_in_mtok": {
+   "v": 4.0,
+   "provisional": true
+  },
+  "opus_out_mtok": {
+   "v": 20.0,
+   "provisional": true
+  },
+  "opus_cache_read_mtok": {
+   "v": 0.2,
+   "provisional": true
+  },
+  "opus_cache_write_mtok": {
+   "v": 5.0,
+   "provisional": true
+  },
+  "h100_hour": {
+   "v": 2.4,
+   "provisional": true
+  },
+  "cpu_hour": {
+   "v": 0.12,
+   "provisional": true
+  }
+ },
+ "budget": {
+  "turns": {
+   "v": 40,
+   "provisional": true
+  },
+  "repair_rounds": {
+   "v": 3,
+   "provisional": true
+  },
+  "token_cap": {
+   "v": 1500000,
+   "provisional": true
+  },
+  "seeds_sealed": {
+   "v": 1,
+   "provisional": true
+  },
+  "seeds_live": {
+   "v": 3,
+   "provisional": true
+  }
+ },
+ "arms": {
+  "A1": "plain prompt",
+  "A2": "AGENTS.md prose from the same spec",
+  "A3": "spec, engine and gate, own tests and ring 1",
+  "A4": "the full machine"
+ }
+}

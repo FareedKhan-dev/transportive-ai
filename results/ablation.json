@@ -1,0 +1,292 @@
+{
+ "baseline": {
+  "arm": "A4",
+  "coder": "qwen",
+  "pass": {
+   "v": 30,
+   "provisional": true
+  },
+  "double_refunds": {
+   "v": 0,
+   "provisional": true
+  },
+  "violations": {
+   "v": 1,
+   "provisional": true
+  },
+  "repair_rounds": {
+   "v": 0.774194,
+   "provisional": true
+  }
+ },
+ "rows": [
+  {
+   "row": "fail-closed gate",
+   "how": "rerun",
+   "pass": {
+    "v": 26,
+    "provisional": true
+   },
+   "delta_pass": {
+    "v": -4,
+    "provisional": true
+   },
+   "double_refunds": {
+    "v": 0,
+    "provisional": true
+   },
+   "violations": {
+    "v": 5,
+    "provisional": true
+   }
+  },
+  {
+   "row": "Z3 conflict solver",
+   "how": "rerun",
+   "pass": {
+    "v": 27,
+    "provisional": true
+   },
+   "delta_pass": {
+    "v": -3,
+    "provisional": true
+   },
+   "double_refunds": {
+    "v": 0,
+    "provisional": true
+   },
+   "violations": {
+    "v": 3,
+    "provisional": true
+   }
+  },
+  {
+   "row": "transport laws",
+   "how": "rerun",
+   "pass": {
+    "v": 28,
+    "provisional": true
+   },
+   "delta_pass": {
+    "v": -2,
+    "provisional": true
+   },
+   "double_refunds": {
+    "v": 0,
+    "provisional": true
+   },
+   "violations": {
+    "v": 2,
+    "provisional": true
+   }
+  },
+  {
+   "row": "semantic index",
+   "how": "rerun",
+   "pass": {
+    "v": 28,
+    "provisional": true
+   },
+   "delta_pass": {
+    "v": -2,
+    "provisional": true
+   },
+   "double_refunds": {
+    "v": 0,
+    "provisional": true
+   },
+   "violations": {
+    "v": 1,
+    "provisional": true
+   },
+   "repair_rounds": {
+    "v": 1.64,
+    "provisional": true
+   }
+  },
+  {
+   "row": "region typing",
+   "how": "rerun",
+   "pass": {
+    "v": 29,
+    "provisional": true
+   },
+   "delta_pass": {
+    "v": -1,
+    "provisional": true
+   },
+   "double_refunds": {
+    "v": 0,
+    "provisional": true
+   },
+   "violations": {
+    "v": 2,
+    "provisional": true
+   },
+   "wrong_context_shipped": {
+    "v": 2,
+    "provisional": true
+   }
+  },
+  {
+   "row": "rules mined from code",
+   "how": "rerun",
+   "pass": {
+    "v": 25,
+    "provisional": true
+   },
+   "delta_pass": {
+    "v": -5,
+    "provisional": true
+   },
+   "double_refunds": {
+    "v": 1,
+    "provisional": true
+   },
+   "violations": {
+    "v": 4,
+    "provisional": true
+   }
+  },
+  {
+   "row": "spec-only test writer",
+   "how": "rerun",
+   "pass": {
+    "v": 27,
+    "provisional": true
+   },
+   "delta_pass": {
+    "v": -3,
+    "provisional": true
+   },
+   "double_refunds": {
+    "v": 1,
+    "provisional": true
+   },
+   "violations": {
+    "v": 3,
+    "provisional": true
+   }
+  },
+  {
+   "row": "lagging standby",
+   "how": "rerun",
+   "pass": {
+    "v": 29,
+    "provisional": true
+   },
+   "delta_pass": {
+    "v": -1,
+    "provisional": true
+   },
+   "double_refunds": {
+    "v": 1,
+    "provisional": true
+   },
+   "violations": {
+    "v": 2,
+    "provisional": true
+   }
+  },
+  {
+   "row": "model checker",
+   "how": "counterfactual",
+   "pass": {
+    "v": 29,
+    "provisional": true
+   },
+   "delta_pass": {
+    "v": -1,
+    "provisional": true
+   },
+   "double_refunds": {
+    "v": 1,
+    "provisional": true
+   },
+   "violations": {
+    "v": 2,
+    "provisional": true
+   }
+  },
+  {
+   "row": "race test",
+   "how": "counterfactual",
+   "pass": {
+    "v": 27,
+    "provisional": true
+   },
+   "delta_pass": {
+    "v": -3,
+    "provisional": true
+   },
+   "double_refunds": {
+    "v": 3,
+    "provisional": true
+   },
+   "violations": {
+    "v": 4,
+    "provisional": true
+   }
+  },
+  {
+   "row": "UCI replay",
+   "how": "counterfactual",
+   "pass": {
+    "v": 29,
+    "provisional": true
+   },
+   "delta_pass": {
+    "v": -1,
+    "provisional": true
+   },
+   "double_refunds": {
+    "v": 0,
+    "provisional": true
+   },
+   "violations": {
+    "v": 2,
+    "provisional": true
+   }
+  },
+  {
+   "row": "mutation gate",
+   "how": "counterfactual",
+   "pass": {
+    "v": 30,
+    "provisional": true
+   },
+   "delta_pass": {
+    "v": 0,
+    "provisional": true
+   },
+   "double_refunds": {
+    "v": 0,
+    "provisional": true
+   },
+   "violations": {
+    "v": 1,
+    "provisional": true
+   },
+   "weak_oracles": {
+    "v": 3,
+    "provisional": true
+   }
+  },
+  {
+   "row": "leases and merge queue",
+   "how": "parallel",
+   "broken_merges_shipped": {
+    "v": 4,
+    "provisional": true
+   }
+  },
+  {
+   "row": "database guards",
+   "how": "counterfactual on A1",
+   "loud_errors": {
+    "v": 0,
+    "provisional": true
+   }
+  }
+ ]
+}

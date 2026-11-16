@@ -1,0 +1,8 @@
+id: D-003
+owner: payments
+kind: same_means
+when:
+  method: sepa_debit
+expr: same_means
+question: '[NEEDS CLARIFICATION: no rule fixes same_means for a SEPA debit outside the EU]'
+answer: A SEPA debit is refunded by the same means in every region.

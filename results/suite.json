@@ -1,0 +1,653 @@
+{
+ "sealed": [
+  {
+   "id": "T01",
+   "kind": "live",
+   "slug": "saleor-19812-release-once",
+   "class": "duplicate_transfer",
+   "context": {
+    "region": "any",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "saleor#19812",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T02",
+   "kind": "live",
+   "slug": "saleor-19852-retry-repairs-totals",
+   "class": "lost_update",
+   "context": {
+    "region": "any",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "saleor#19852",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T03",
+   "kind": "live",
+   "slug": "saleor-19957-dealloc-conserves",
+   "class": "lost_update",
+   "context": {
+    "region": "any",
+    "method": "any",
+    "contract": "standard"
+   },
+   "source": "saleor#19957",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T04",
+   "kind": "replay",
+   "slug": "race-partial-refund-eu",
+   "class": "duplicate_transfer",
+   "context": {
+    "region": "EU",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "medusa#16012",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T05",
+   "kind": "replay",
+   "slug": "race-partial-refund-us",
+   "class": "duplicate_transfer",
+   "context": {
+    "region": "US",
+    "method": "card",
+    "contract": "subscription"
+   },
+   "source": "medusa#16012",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T06",
+   "kind": "replay",
+   "slug": "race-partial-refund-br",
+   "class": "duplicate_transfer",
+   "context": {
+    "region": "BR",
+    "method": "boleto",
+    "contract": "standard"
+   },
+   "source": "medusa#16012",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T07",
+   "kind": "replay",
+   "slug": "retry-new-key-eu",
+   "class": "duplicate_transfer",
+   "context": {
+    "region": "EU",
+    "method": "sepa_debit",
+    "contract": "standard"
+   },
+   "source": "medusa#16681",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T08",
+   "kind": "replay",
+   "slug": "retry-new-key-us",
+   "class": "duplicate_transfer",
+   "context": {
+    "region": "US",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "medusa#16681",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T09",
+   "kind": "replay",
+   "slug": "retry-new-key-br",
+   "class": "duplicate_transfer",
+   "context": {
+    "region": "BR",
+    "method": "card",
+    "contract": "subscription"
+   },
+   "source": "medusa#16681",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T10",
+   "kind": "replay",
+   "slug": "credit-before-save-eu",
+   "class": "duplicate_transfer",
+   "context": {
+    "region": "EU",
+    "method": "card",
+    "contract": "subscription"
+   },
+   "source": "solidus#6456",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T11",
+   "kind": "replay",
+   "slug": "credit-before-save-us",
+   "class": "duplicate_transfer",
+   "context": {
+    "region": "US",
+    "method": "voucher",
+    "contract": "standard"
+   },
+   "source": "solidus#6456",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T12",
+   "kind": "replay",
+   "slug": "credit-before-save-br",
+   "class": "duplicate_transfer",
+   "context": {
+    "region": "BR",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "solidus#6456",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T13",
+   "kind": "replay",
+   "slug": "unbounded-refund-eu",
+   "class": "over_refund",
+   "context": {
+    "region": "EU",
+    "method": "voucher",
+    "contract": "standard"
+   },
+   "source": "oscar#4580",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T14",
+   "kind": "replay",
+   "slug": "unbounded-refund-us",
+   "class": "over_refund",
+   "context": {
+    "region": "US",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "oscar#4580",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T15",
+   "kind": "replay",
+   "slug": "unbounded-refund-br",
+   "class": "over_refund",
+   "context": {
+    "region": "BR",
+    "method": "boleto",
+    "contract": "standard"
+   },
+   "source": "oscar#4580",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T16",
+   "kind": "replay",
+   "slug": "minor-unit-rounding-eu",
+   "class": "rounding_drift",
+   "context": {
+    "region": "EU",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "medusa#17630",
+   "ambiguous": true,
+   "conflict": false
+  },
+  {
+   "id": "T17",
+   "kind": "replay",
+   "slug": "minor-unit-rounding-us",
+   "class": "rounding_drift",
+   "context": {
+    "region": "US",
+    "method": "card",
+    "contract": "subscription"
+   },
+   "source": "medusa#15303",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T18",
+   "kind": "replay",
+   "slug": "minor-unit-rounding-br",
+   "class": "rounding_drift",
+   "context": {
+    "region": "BR",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "spree#6226",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T19",
+   "kind": "replay",
+   "slug": "refund-in-dispute-eu",
+   "class": "refund_in_dispute",
+   "context": {
+    "region": "EU",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "stripe:refund_disputed_payment",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T20",
+   "kind": "replay",
+   "slug": "refund-in-dispute-us",
+   "class": "refund_in_dispute",
+   "context": {
+    "region": "US",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "stripe:charge_for_pending_refund_disputed",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T21",
+   "kind": "replay",
+   "slug": "refund-in-dispute-sepa",
+   "class": "refund_in_dispute",
+   "context": {
+    "region": "EU",
+    "method": "sepa_debit",
+    "contract": "standard"
+   },
+   "source": "stripe:bank-debit",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T22",
+   "kind": "replay",
+   "slug": "wrong-method-eu",
+   "class": "wrong_method",
+   "context": {
+    "region": "EU",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "eu-2011-83-art13",
+   "ambiguous": true,
+   "conflict": false
+  },
+  {
+   "id": "T23",
+   "kind": "replay",
+   "slug": "wrong-method-us",
+   "class": "wrong_method",
+   "context": {
+    "region": "US",
+    "method": "voucher",
+    "contract": "standard"
+   },
+   "source": "stripe:original-method",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T24",
+   "kind": "replay",
+   "slug": "wrong-method-br",
+   "class": "wrong_method",
+   "context": {
+    "region": "BR",
+    "method": "boleto",
+    "contract": "standard"
+   },
+   "source": "stripe:boleto-bank-details",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T25",
+   "kind": "feature",
+   "slug": "eu-withdrawal-deadline",
+   "class": "deadline_breach",
+   "context": {
+    "region": "EU",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "eu-2011-83-art13",
+   "ambiguous": true,
+   "conflict": false
+  },
+  {
+   "id": "T26",
+   "kind": "feature",
+   "slug": "delivery-surcharge",
+   "class": "over_refund",
+   "context": {
+    "region": "EU",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "eu-2011-83-art13",
+   "ambiguous": true,
+   "conflict": false
+  },
+  {
+   "id": "T27",
+   "kind": "feature",
+   "slug": "withhold-until-return",
+   "class": "deadline_breach",
+   "context": {
+    "region": "EU",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "eu-2011-83-art13",
+   "ambiguous": true,
+   "conflict": false
+  },
+  {
+   "id": "T28",
+   "kind": "feature",
+   "slug": "store-credit-consent",
+   "class": "wrong_method",
+   "context": {
+    "region": "EU",
+    "method": "voucher",
+    "contract": "standard"
+   },
+   "source": "eu-2011-83-art13+stripe",
+   "ambiguous": false,
+   "conflict": true
+  },
+  {
+   "id": "T29",
+   "kind": "feature",
+   "slug": "prorated-subscription",
+   "class": "over_refund",
+   "context": {
+    "region": "US",
+    "method": "card",
+    "contract": "subscription"
+   },
+   "source": "crespo:subscription_renewal",
+   "ambiguous": true,
+   "conflict": false
+  },
+  {
+   "id": "T30",
+   "kind": "feature",
+   "slug": "credential-fallback",
+   "class": "wrong_method",
+   "context": {
+    "region": "EU",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "visa:0003076+eu-2011-83-art13",
+   "ambiguous": false,
+   "conflict": true
+  },
+  {
+   "id": "T31",
+   "kind": "feature",
+   "slug": "no-orphan-credit",
+   "class": "over_refund",
+   "context": {
+    "region": "US",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "visa:0003076",
+   "ambiguous": false,
+   "conflict": false
+  },
+  {
+   "id": "T32",
+   "kind": "feature",
+   "slug": "dispute-block",
+   "class": "refund_in_dispute",
+   "context": {
+    "region": "EU",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "stripe+eu-2011-83-art13",
+   "ambiguous": false,
+   "conflict": true
+  },
+  {
+   "id": "T33",
+   "kind": "feature",
+   "slug": "boleto-bank-refund",
+   "class": "wrong_method",
+   "context": {
+    "region": "BR",
+    "method": "boleto",
+    "contract": "standard"
+   },
+   "source": "br-cdc-art49+stripe",
+   "ambiguous": true,
+   "conflict": true
+  },
+  {
+   "id": "T34",
+   "kind": "feature",
+   "slug": "split-tender-order",
+   "class": "wrong_method",
+   "context": {
+    "region": "EU",
+    "method": "voucher",
+    "contract": "standard"
+   },
+   "source": "policy+eu-2011-83-art13",
+   "ambiguous": true,
+   "conflict": true
+  },
+  {
+   "id": "T35",
+   "kind": "feature",
+   "slug": "installment-refund",
+   "class": "rounding_drift",
+   "context": {
+    "region": "BR",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "allocate-never-divide",
+   "ambiguous": true,
+   "conflict": false
+  },
+  {
+   "id": "T36",
+   "kind": "feature",
+   "slug": "capture-then-cancel",
+   "class": "over_refund",
+   "context": {
+    "region": "US",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "saleor:cancel",
+   "ambiguous": true,
+   "conflict": false
+  }
+ ],
+ "dev": [
+  {
+   "id": "D1",
+   "kind": "dev",
+   "slug": "race-partial-refund-dev",
+   "class": "duplicate_transfer",
+   "context": {
+    "region": "EU",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "medusa#16012"
+  },
+  {
+   "id": "D2",
+   "kind": "dev",
+   "slug": "retry-new-key-dev",
+   "class": "duplicate_transfer",
+   "context": {
+    "region": "US",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "medusa#16681"
+  },
+  {
+   "id": "D3",
+   "kind": "dev",
+   "slug": "over-refund-dev",
+   "class": "over_refund",
+   "context": {
+    "region": "US",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "oscar#4580"
+  },
+  {
+   "id": "D4",
+   "kind": "dev",
+   "slug": "rounding-dev",
+   "class": "rounding_drift",
+   "context": {
+    "region": "EU",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "medusa#15315"
+  },
+  {
+   "id": "D5",
+   "kind": "dev",
+   "slug": "dispute-dev",
+   "class": "refund_in_dispute",
+   "context": {
+    "region": "US",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "stripe:charge_disputed"
+  },
+  {
+   "id": "D6",
+   "kind": "dev",
+   "slug": "wrong-method-dev",
+   "class": "wrong_method",
+   "context": {
+    "region": "EU",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "stripe:original-method"
+  },
+  {
+   "id": "D7",
+   "kind": "dev",
+   "slug": "deadline-dev",
+   "class": "deadline_breach",
+   "context": {
+    "region": "BR",
+    "method": "boleto",
+    "contract": "standard"
+   },
+   "source": "br-cdc-art49"
+  },
+  {
+   "id": "D8",
+   "kind": "dev",
+   "slug": "lost-update-dev",
+   "class": "lost_update",
+   "context": {
+    "region": "any",
+    "method": "card",
+    "contract": "standard"
+   },
+   "source": "saleor#19854"
+  }
+ ],
+ "classes": [
+  "duplicate_transfer",
+  "over_refund",
+  "rounding_drift",
+  "wrong_method",
+  "refund_in_dispute",
+  "deadline_breach",
+  "lost_update"
+ ],
+ "counts": {
+  "sealed": {
+   "v": 36,
+   "provisional": true
+  },
+  "dev": {
+   "v": 8,
+   "provisional": true
+  },
+  "live": {
+   "v": 3,
+   "provisional": true
+  },
+  "replay": {
+   "v": 21,
+   "provisional": true
+  },
+  "feature": {
+   "v": 12,
+   "provisional": true
+  },
+  "ambiguous": {
+   "v": 10,
+   "provisional": true
+  },
+  "conflicts": {
+   "v": 5,
+   "provisional": true
+  },
+  "bug_classes": {
+   "v": 7,
+   "provisional": true
+  },
+  "contexts_per_class": {
+   "v": 3,
+   "provisional": true
+  }
+ }
+}

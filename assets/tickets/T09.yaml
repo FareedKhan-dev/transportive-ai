@@ -1,0 +1,15 @@
+id: T09
+kind: replay
+slug: retry-new-key-br
+class: duplicate_transfer
+source: medusa#16681
+context:
+  region: BR
+  method: card
+  contract: subscription
+ambiguous: false
+conflict: false
+text: When the payment app's answer to a Brazilian card subscription refund request is lost, the retry goes out under a new idempotency key and the provider can refund twice. A retried request must keep
+  its key.
+bug_commit: 7cae94f2fbe093bbcce99d6d939b54eb280e29da
+fix_commit: 99161904924d6e7f12bb8e3ca5279fa15473d377

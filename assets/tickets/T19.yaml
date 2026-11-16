@@ -1,0 +1,14 @@
+id: T19
+kind: replay
+slug: refund-in-dispute-eu
+class: refund_in_dispute
+source: stripe:refund_disputed_payment
+context:
+  region: EU
+  method: card
+  contract: standard
+ambiguous: false
+conflict: false
+text: An EU card refund can go out while a dispute is open, and the customer can be credited twice. Block refunds outside the dispute process while a dispute is open.
+bug_commit: cf19dd940d6ec176f477dc3c60d62e7836883045
+fix_commit: b1b7b9395dbf1916af22a850a0bcfac23768a969

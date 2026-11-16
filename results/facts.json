@@ -1,0 +1,116 @@
+{
+ "saleor": {
+  "pin": {
+   "v": "4cb1609a90eade14b6275a407bc7a00c35698090",
+   "provisional": false,
+   "src": "notes/saleor_ref/_pin.txt"
+  },
+  "pin_short": {
+   "v": "4cb1609a",
+   "provisional": false,
+   "src": "notes/saleor_ref/_pin.txt"
+  },
+  "payment_files": {
+   "v": 131,
+   "provisional": false,
+   "src": "notes/saleor_ref/_pin.txt"
+  },
+  "payment_lines": {
+   "v": 23382,
+   "provisional": false,
+   "src": "notes/saleor_ref/_pin.txt"
+  },
+  "django": {
+   "v": "5.2",
+   "provisional": false,
+   "src": "notes/saleor_ref/pyproject.toml.txt"
+  },
+  "release_task_every_min": {
+   "v": 10,
+   "provisional": false,
+   "src": "notes/saleor_ref/saleor__settings.py.txt"
+  }
+ },
+ "uci": {
+  "rows": {
+   "v": 1067371,
+   "provisional": false,
+   "src": "notes/evidence_ref/uci-online-retail-ii.md"
+  }
+ },
+ "nber": {
+  "commits_pct": {
+   "v": 240,
+   "provisional": false,
+   "src": "notes/evidence_ref/nber-w35275.md"
+  },
+  "releases_pct": {
+   "v": 30,
+   "provisional": false,
+   "src": "notes/evidence_ref/nber-w35275.md"
+  }
+ },
+ "metr": {
+  "slower_pct": {
+   "v": 19,
+   "provisional": false,
+   "src": "notes/evidence_ref/metr-rct-2025.md"
+  },
+  "believed_faster_pct": {
+   "v": 20,
+   "provisional": false,
+   "src": "notes/evidence_ref/metr-rct-2025.md"
+  }
+ },
+ "newcombe": {
+  "trace_steps": {
+   "v": 35,
+   "provisional": false,
+   "src": "notes/evidence_ref/newcombe-2015.md"
+  }
+ },
+ "rules": {
+  "eu_reimburse_days": {
+   "v": 14,
+   "provisional": false,
+   "src": "notes/rules_ref/eu-2011-83-art13.md"
+  },
+  "br_withdrawal_days": {
+   "v": 7,
+   "provisional": false,
+   "src": "notes/rules_ref/br-cdc-art49.md"
+  },
+  "regz_max_days": {
+   "v": 90,
+   "provisional": false,
+   "src": "notes/rules_ref/reg-z-1026-13.md"
+  },
+  "stripe_key_hours": {
+   "v": 24,
+   "provisional": false,
+   "src": "notes/rules_ref/stripe-idempotency.md"
+  },
+  "stripe_key_chars": {
+   "v": 255,
+   "provisional": false,
+   "src": "notes/rules_ref/stripe-idempotency.md"
+  }
+ },
+ "prices": {
+  "opus_in_mtok": {
+   "v": 4.0,
+   "provisional": false,
+   "src": "claude-api skill, shared/models.md"
+  },
+  "opus_out_mtok": {
+   "v": 20.0,
+   "provisional": false,
+   "src": "claude-api skill, shared/models.md"
+  },
+  "opus_cache_read_mtok": {
+   "v": 0.2,
+   "provisional": false,
+   "src": "claude-api skill, shared/prompt-caching.md"
+  }
+ }
+}

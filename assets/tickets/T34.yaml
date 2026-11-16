@@ -1,0 +1,18 @@
+id: T34
+kind: feature
+slug: split-tender-order
+class: wrong_method
+source: policy+eu-2011-83-art13
+context:
+  region: EU
+  method: voucher
+  contract: standard
+demands:
+- same_means
+outputs:
+- split_order
+ambiguous: true
+conflict: true
+text: 'Refund an EU order paid partly with a voucher and partly by card: the voucher part as store credit, the card part to the card.'
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: 6942d0e5e00935e0d4a15f782e6252459ceadbff

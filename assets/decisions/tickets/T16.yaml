@@ -1,0 +1,3 @@
+ticket: T16
+answer: Round half to even in the currency's minor unit, and give any leftover to
+  the first part.

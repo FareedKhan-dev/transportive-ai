@@ -1,0 +1,98 @@
+{
+ "spec": {
+  "rules": {
+   "v": 30,
+   "provisional": true
+  },
+  "from_code": {
+   "v": 14,
+   "provisional": true
+  },
+  "from_rules": {
+   "v": 11,
+   "provisional": true
+  },
+  "env": {
+   "v": 5,
+   "provisional": true
+  },
+  "kinds": {
+   "v": 8,
+   "provisional": true
+  },
+  "contexts": {
+   "v": 24,
+   "provisional": true
+  },
+  "cases": {
+   "v": 9,
+   "provisional": true
+  },
+  "versions": {
+   "v": 2,
+   "provisional": true
+  }
+ },
+ "workspace": {
+  "replica_lag_s": {
+   "v": 2.0,
+   "provisional": true
+  },
+  "repair_rounds_max": {
+   "v": 3,
+   "provisional": true
+  }
+ },
+ "team": {
+  "agents": {
+   "v": 6,
+   "provisional": true
+  },
+  "llm_roles": {
+   "v": 3,
+   "provisional": true
+  },
+  "channels_star": {
+   "v": 5,
+   "provisional": true
+  },
+  "channels_mesh": {
+   "v": 15,
+   "provisional": true
+  }
+ },
+ "rings": {
+  "count": {
+   "v": 5,
+   "provisional": true
+  }
+ },
+ "mutation": {
+  "mutants": {
+   "v": 39,
+   "provisional": true
+  },
+  "equivalent": {
+   "v": 5,
+   "provisional": true
+  },
+  "rings_killed": {
+   "v": 33,
+   "provisional": true
+  },
+  "plain_killed": {
+   "v": 13,
+   "provisional": true
+  }
+ },
+ "model": {
+  "workers": {
+   "v": 2,
+   "provisional": true
+  },
+  "retries_max": {
+   "v": 3,
+   "provisional": true
+  }
+ }
+}

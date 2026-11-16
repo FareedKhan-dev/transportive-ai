@@ -1,0 +1,14 @@
+id: T07
+kind: replay
+slug: retry-new-key-eu
+class: duplicate_transfer
+source: medusa#16681
+context:
+  region: EU
+  method: sepa_debit
+  contract: standard
+ambiguous: false
+conflict: false
+text: When the payment app's answer to an EU SEPA debit refund request is lost, the retry goes out under a new idempotency key and the provider can refund twice. A retried request must keep its key.
+bug_commit: f5713eb263b9b99fbe3d24c266b3304c02f9285f
+fix_commit: 76aa2ca9d44fe6ef04560dc4e016911b103f8698

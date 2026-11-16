@@ -1,0 +1,14 @@
+id: T05
+kind: replay
+slug: race-partial-refund-us
+class: duplicate_transfer
+source: medusa#16012
+context:
+  region: US
+  method: card
+  contract: subscription
+ambiguous: false
+conflict: false
+text: Two partial refunds sent at the same moment for one US card subscription transaction can together ask for more than was charged. Make concurrent refund requests safe.
+bug_commit: ac76fe82e8782434e3c1d7ebbcc1e998cb9c6804
+fix_commit: e37f715a26e3d096df5ff735292d6a9a9543dcdb

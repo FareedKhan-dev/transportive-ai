@@ -1,0 +1,14 @@
+id: D4
+kind: dev
+slug: rounding-dev
+class: rounding_drift
+source: medusa#15315
+context:
+  region: EU
+  method: card
+  contract: standard
+ambiguous: false
+conflict: false
+text: Partial refunds of EU card orders can end one minor unit away from the charged total. Make them exact.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: 1702fdc92c42418aa0dbd1927be6fa3e8662b847

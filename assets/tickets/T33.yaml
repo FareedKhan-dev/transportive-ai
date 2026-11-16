@@ -1,0 +1,18 @@
+id: T33
+kind: feature
+slug: boleto-bank-refund
+class: wrong_method
+source: br-cdc-art49+stripe
+context:
+  region: BR
+  method: boleto
+  contract: standard
+demands:
+- same_means
+outputs:
+- bank_details_source
+ambiguous: true
+conflict: true
+text: Refund Brazilian boleto payments the way they came in, and settle where the bank details come from.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: a0ffe4a123e3d08a4dc0ae38e7dc37d5df484df0

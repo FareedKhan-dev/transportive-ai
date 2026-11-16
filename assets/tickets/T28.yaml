@@ -1,0 +1,16 @@
+id: T28
+kind: feature
+slug: store-credit-consent
+class: wrong_method
+source: eu-2011-83-art13+stripe
+context:
+  region: EU
+  method: voucher
+  contract: standard
+demands:
+- same_means
+ambiguous: false
+conflict: true
+text: Refund EU voucher purchases onto the voucher they were paid with, never as new store credit.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: 3fd7a7e531c664c8d4c7319068b16b823506dc1e

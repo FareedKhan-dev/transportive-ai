@@ -1,0 +1,16 @@
+id: T16
+kind: replay
+slug: minor-unit-rounding-eu
+class: rounding_drift
+source: medusa#17630
+context:
+  region: EU
+  method: card
+  contract: standard
+outputs:
+- rounding_mode
+ambiguous: true
+conflict: false
+text: Partial refunds of EU card orders are computed in floating point and can drift by a minor unit from the charged total. Make every refund exact in the currency's minor units.
+bug_commit: bcd0df295ade8e516917ba8182d11d9f44f923d1
+fix_commit: e297fce7468306a32332201e022da6c0bb0ec1b4

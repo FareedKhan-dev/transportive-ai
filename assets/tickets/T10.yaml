@@ -1,0 +1,14 @@
+id: T10
+kind: replay
+slug: credit-before-save-eu
+class: duplicate_transfer
+source: solidus#6456
+context:
+  region: EU
+  method: card
+  contract: subscription
+ambiguous: false
+conflict: false
+text: For EU card subscription refunds the provider is asked for the money before the refund event is saved, so a failed save leaves money sent with no record. Record the refund before any money moves.
+bug_commit: cff192c3cc34c42fb5f0762202450434db58318c
+fix_commit: be1472bd97910fa38620d247cec22207fe00d917

@@ -1,0 +1,22 @@
+[project]
+name = "transportive-ai"
+version = "0.1.0"
+description = "Rules first, then tests the agent did not write: transportive AI on Saleor's payment module"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic",
+    "openai",
+    "z3-solver",
+    "hypothesis",
+    "pyyaml",
+    "psycopg[binary]",
+    "django",
+    "pandas",
+    "openpyxl",
+    "scipy",
+    "pytest",
+]
+
+[tool.uv]
+package = false

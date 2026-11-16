@@ -1,0 +1,14 @@
+id: T18
+kind: replay
+slug: minor-unit-rounding-br
+class: rounding_drift
+source: spree#6226
+context:
+  region: BR
+  method: card
+  contract: standard
+ambiguous: false
+conflict: false
+text: Partial refunds of Brazilian card orders are computed in floating point and can drift by a minor unit from the charged total. Make every refund exact in the currency's minor units.
+bug_commit: 34c0c5ca41f18883c22cc401c7c2a2b673402b22
+fix_commit: a0434380fe9e41a9510ab8260bfc6809cd47eecc

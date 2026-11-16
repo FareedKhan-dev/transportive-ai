@@ -1,0 +1,14 @@
+id: T13
+kind: replay
+slug: unbounded-refund-eu
+class: over_refund
+source: oscar#4580
+context:
+  region: EU
+  method: voucher
+  contract: standard
+ambiguous: false
+conflict: false
+text: An EU voucher refund request can ask for more than the transaction has left to refund. Refuse any refund that would go past the charged amount.
+bug_commit: 554cd80a7198b6ea819419691195d824cc61745c
+fix_commit: 93bf56b688fccd8567d8b048182a22caa3d6ccf7

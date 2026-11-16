@@ -1,0 +1,16 @@
+id: T30
+kind: feature
+slug: credential-fallback
+class: wrong_method
+source: visa:0003076+eu-2011-83-art13
+context:
+  region: EU
+  method: card
+  contract: standard
+demands:
+- not same_means
+ambiguous: false
+conflict: true
+text: When the original card is closed, refund an EU card order to a secondary credential, as the card network allows.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: f0d799c2a70310b6cde96ab378893ef562f8d48a

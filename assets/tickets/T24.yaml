@@ -1,0 +1,14 @@
+id: T24
+kind: replay
+slug: wrong-method-br
+class: wrong_method
+source: stripe:boleto-bank-details
+context:
+  region: BR
+  method: boleto
+  contract: standard
+ambiguous: false
+conflict: false
+text: Brazilian boleto refunds can go back by a different means than the payment came. Return the money the way the rules of this context require.
+bug_commit: 6c83b107dd2fd2ae2023d03e752709e383973361
+fix_commit: 186ea83f790a2a8cca01e0665e2e28d89aeb902d

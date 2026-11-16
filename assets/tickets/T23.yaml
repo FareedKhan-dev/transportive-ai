@@ -1,0 +1,14 @@
+id: T23
+kind: replay
+slug: wrong-method-us
+class: wrong_method
+source: stripe:original-method
+context:
+  region: US
+  method: voucher
+  contract: standard
+ambiguous: false
+conflict: false
+text: US voucher refunds can go back by a different means than the payment came. Return the money the way the rules of this context require.
+bug_commit: 0ef3d7b588766f621e0c36e022c4ebb18c9dd0b4
+fix_commit: e818a664b639e7e1b9dce6641b1326d49191c7da

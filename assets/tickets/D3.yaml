@@ -1,0 +1,14 @@
+id: D3
+kind: dev
+slug: over-refund-dev
+class: over_refund
+source: oscar#4580
+context:
+  region: US
+  method: card
+  contract: standard
+ambiguous: false
+conflict: false
+text: TransactionRequestAction cuts a refund that is larger than the charge down to the charged amount and tells nobody. Refuse such a refund with an error.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: 8614cd2d1dce3a7c07f178a1c6015886d013e27e

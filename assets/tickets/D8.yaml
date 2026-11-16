@@ -1,0 +1,13 @@
+id: D8
+kind: dev
+slug: lost-update-dev
+class: lost_update
+source: saleor#19854
+context:
+  method: card
+  contract: standard
+ambiguous: false
+conflict: false
+text: Two overlapping transaction reports can overwrite the newer charged total with an older one (saleor#19854). Keep the newest total.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: 0f71c5b098adca03f476a246bfce91b0741ab33f

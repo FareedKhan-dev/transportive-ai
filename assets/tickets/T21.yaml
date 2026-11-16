@@ -1,0 +1,14 @@
+id: T21
+kind: replay
+slug: refund-in-dispute-sepa
+class: refund_in_dispute
+source: stripe:bank-debit
+context:
+  region: EU
+  method: sepa_debit
+  contract: standard
+ambiguous: false
+conflict: false
+text: An EU SEPA debit refund can go out while a dispute is open, and the customer can be credited twice. Block refunds outside the dispute process while a dispute is open.
+bug_commit: 11dd26a599b26ae562512605ca147312995f9097
+fix_commit: bed62762f6903d4e9b0f994113d6eeffca3778b3

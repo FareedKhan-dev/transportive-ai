@@ -1,0 +1,6 @@
+A Merchant must not:
+- Accept payment from a Cardholder for the purpose of depositing funds to the Cardholder’s account¹
+- Process a Credit Transaction Receipt without having completed a previous retail Transaction with the same Cardholder²
+These restrictions do not apply to the loading of value to a Prepaid Card that participates in the Visa Prepaid Load Service.
+¹ Except a Cash-In Transaction
+² This requirement does not apply to the Cardholder Loyalty Program.

@@ -1,0 +1,14 @@
+id: T04
+kind: replay
+slug: race-partial-refund-eu
+class: duplicate_transfer
+source: medusa#16012
+context:
+  region: EU
+  method: card
+  contract: standard
+ambiguous: false
+conflict: false
+text: Two partial refunds sent at the same moment for one EU card transaction can together ask for more than was charged. Make concurrent refund requests safe.
+bug_commit: 27797daa86fa19b20dff5c97c9bd3513b9c825fa
+fix_commit: 0f4fb5e4a86e216586f2701bcaf0adbe735c145b

@@ -1,0 +1,14 @@
+id: T11
+kind: replay
+slug: credit-before-save-us
+class: duplicate_transfer
+source: solidus#6456
+context:
+  region: US
+  method: voucher
+  contract: standard
+ambiguous: false
+conflict: false
+text: For US voucher refunds the provider is asked for the money before the refund event is saved, so a failed save leaves money sent with no record. Record the refund before any money moves.
+bug_commit: 95138130c63f98820ebe8aab3f6303e78cdc395a
+fix_commit: 1384783e7dcfaeb90eb6cd3e5846c39230726682

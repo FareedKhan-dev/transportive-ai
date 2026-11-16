@@ -1,0 +1,13 @@
+For bank debit payment methods such as SEPA Direct Debit, Bacs Direct Debit, ACH Direct Debit, ACSS (Canadian PADs), AU BECS Direct Debit, and NZ bank account debits, there’s a risk of double refund. If you proactively issue a refund while the customer’s bank also initiates a dispute, the customer might receive two credits for the same transaction. Refer to the refund guidelines for each payment method to avoid this situation.
+A customer can contact both you and their bank about the same payment. If you refund while the bank also starts a dispute, the customer can receive two credits.
+Issuing a refund doesn’t prevent a dispute. If the customer disputes the payment through their bank after receiving a refund, they might receive a second credit.
+You can’t issue a refund outside the dispute process while the dispute is open.
+`charge_disputed`: The charge you’re attempting to refund has been charged back. See Disputes to learn how to respond to the dispute.
+`refund_disputed_payment`: You can’t refund a disputed payment.
+`charge_for_pending_refund_disputed`: A customer disputed the charge while the refund is pending. In this case, Stripe recommends accepting or challenging the dispute instead of refunding to avoid duplicate reimbursements to the customer.
+Always address a formally disputed payment through this process. The issuing bank has already refunded the account owner, and it’s the only way you can attempt to retrieve the disputed funds.
+While customers can’t dispute fully refunded payments, they can still dispute partially refunded payments. Card network rules even allow for a payment that has been partially refunded to be disputed for the full payment amount.
+While uncommon, a customer can dispute a payment for the full amount even if they’ve already received a partial refund (for example, a refund of a smaller amount that has been agreed upon). We understand this is frustrating as it amounts to an over-refund of more than the original purchase. Always respond in such cases because card issuers are very willing to rectify this situation.
+Inquiries on partially refunded charges can still escalate to a chargeback.
+In cases where you agree that the customer should keep the disputed funds, accept the dispute rather than ask the cardholder to withdraw the dispute for a regular refund.
+A Cardholder must not be credited twice as a result of both a Dispute or Compliance, and a Credit processed by a Merchant. Should such a situation arise, this must be resolved through the Dispute resolution process and not through the Compliance process.

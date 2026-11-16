@@ -1,0 +1,9 @@
+id: D-002
+owner: retail
+kind: scope
+when:
+  method: voucher
+expr: not same_means
+question: Is a refund of a voucher purchase a provider refund or store credit?
+answer: Store credit is a store voucher and never a provider refund.
+change: policy.store_credit stays as written, confirmed by its owner

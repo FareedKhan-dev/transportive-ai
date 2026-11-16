@@ -1,0 +1,14 @@
+id: T12
+kind: replay
+slug: credit-before-save-br
+class: duplicate_transfer
+source: solidus#6456
+context:
+  region: BR
+  method: card
+  contract: standard
+ambiguous: false
+conflict: false
+text: For Brazilian card refunds the provider is asked for the money before the refund event is saved, so a failed save leaves money sent with no record. Record the refund before any money moves.
+bug_commit: 067bd1cfe40774d783f87825f7b813fb07f70cc2
+fix_commit: 4f1dad5087ed19a241069885b0e23476da9a99ed

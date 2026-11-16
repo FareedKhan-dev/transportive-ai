@@ -1,0 +1,14 @@
+id: T17
+kind: replay
+slug: minor-unit-rounding-us
+class: rounding_drift
+source: medusa#15303
+context:
+  region: US
+  method: card
+  contract: subscription
+ambiguous: false
+conflict: false
+text: Partial refunds of US card subscription orders are computed in floating point and can drift by a minor unit from the charged total. Make every refund exact in the currency's minor units.
+bug_commit: 87479ce21d321204d0619e25cfb900d1968d2cef
+fix_commit: 6b01d527bcda341c671517a9fb6480795aaed983

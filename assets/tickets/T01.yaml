@@ -1,0 +1,14 @@
+id: T01
+kind: live
+slug: saleor-19812-release-once
+class: duplicate_transfer
+source: saleor#19812
+context:
+  method: card
+  contract: standard
+ambiguous: false
+conflict: false
+text: 'The automatic release of funds for abandoned checkouts can send two refund or cancel requests for one transaction when two runs overlap or the replica lags. Each transaction must be released at most
+  once, as the acceptance criteria of saleor#19812 ask: recheck eligibility on the writer, and lock rows in a consistent order.'
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: a7908ee123d7a3b10ea0f116da57b3f12fd416bc

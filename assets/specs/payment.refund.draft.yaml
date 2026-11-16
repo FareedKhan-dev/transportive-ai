@@ -1,0 +1,54 @@
+# payment.refund 0.9: the draft, before decisions D-001 and D-002 narrowed psp.original_method to cards.
+# Code rules carry Saleor file:line at pin 4cb1609a. Law, network and provider rules carry a fact id whose verbatim quote
+# lives in notes/rules_ref/. Env rules say what the outside world may do to us, they never become obligations of ours.
+specification: {id: payment.refund, operation: Refund}
+version: "0.9"
+context_resolution: {no_match: reject, ambiguous: clarify, conflict: reject}
+contexts:
+  cases:
+    - {name: standard_purchase, when: {contract: standard}, rules: {refund_policy: Full, duplicate_execution: Forbidden}}
+    - {name: subscription_renewal, when: {contract: subscription}, rules: {refund_policy: Prorated, duplicate_execution: Forbidden}}
+    - {name: eu_card, when: {region: EU, method: card}, rules: {refund_policy: Full, duplicate_execution: Forbidden}}
+    - {name: eu_sepa, when: {region: EU, method: sepa_debit}, rules: {refund_policy: Full, duplicate_execution: Forbidden}}
+    - {name: eu_subscription, when: {region: EU, contract: subscription}, rules: {refund_policy: Prorated, duplicate_execution: Forbidden}}
+    - {name: us_card, when: {region: US, method: card}, rules: {refund_policy: Full, duplicate_execution: Forbidden}}
+    - {name: br_card, when: {region: BR, method: card}, rules: {refund_policy: Full, duplicate_execution: Forbidden}}
+    - {name: br_boleto, when: {region: BR, method: boleto}, rules: {refund_policy: Full, duplicate_execution: Forbidden}}
+    - {name: voucher_any, when: {method: voucher}, rules: {refund_policy: Full, duplicate_execution: Forbidden}}
+rules:
+  # mined from Saleor's code and migrations, approved by the payments owner
+  - {id: code.refund_positive, kind: bound, when: {}, expr: "amount > 0", source: "saleor/payment/gateway.py:540", owner: payments}
+  - {id: code.refund_within_charged, kind: bound, when: {}, expr: "amount + refunded <= charged", source: "saleor/payment/gateway.py:542", owner: payments,
+     db: {guard: check, model: transactionitem, q: "charged_value__gte=0"}}
+  - {id: code.refund_needs_charge, kind: transition, when: {}, expr: "charged > 0", source: "saleor/payment/models.py:464", owner: payments}
+  - {id: code.payment_row_lock, kind: atomic, when: {}, expr: "requested <= 1", source: "saleor/payment/gateway.py:88", owner: payments}
+  - {id: code.item_lock_order, kind: atomic, when: {}, expr: "requested <= 1", source: "saleor/payment/lock_objects.py:16", owner: payments}
+  - {id: code.item_idempotency, kind: at_most_once, when: {}, expr: "requested <= 1", source: "saleor/payment/models.py:216", owner: payments}
+  - {id: code.event_idempotency, kind: at_most_once, when: {}, expr: "requested <= 1", source: "saleor/payment/models.py:283", owner: payments}
+  - {id: code.event_dedupe, kind: at_most_once, when: {}, expr: "requested <= 1", source: "saleor/payment/utils.py:1154", owner: payments}
+  - {id: code.refunded_not_negative, kind: invariant, when: {}, expr: "refunded >= 0", source: "saleor/payment/transaction_item_calculations.py:183",
+     owner: payments, db: {guard: check, model: transactionitem, q: "refunded_value__gte=0"}}
+  - {id: code.release_once, kind: at_most_once, when: {}, expr: "requested <= 1", source: "saleor/payment/tasks.py:87", owner: payments}
+  - {id: code.release_needs_charge, kind: transition, when: {}, expr: "charged > 0", source: "saleor/payment/tasks.py:81", owner: payments}
+  - {id: code.minor_units, kind: bound, when: {}, expr: "amount >= 0.01", source: "saleor/payment/utils.py:721", owner: payments}
+  - {id: code.charged_matches_events, kind: invariant, when: {}, expr: "charged == charge_events",
+     source: "saleor/graphql/payment/mutations/transaction/transaction_event_report.py:439", owner: payments}
+  - {id: code.allocated_matches_rows, kind: invariant, when: {}, expr: "allocated == allocations", source: "saleor/warehouse/management.py:449", owner: warehouse}
+  # drafted from law, the card network and the provider, each kept only because its quote was found word for word
+  - {id: eu.reimburse_14_days, kind: deadline, when: {region: EU}, expr: "days <= 14", source: eu-2011-83-art13, owner: legal}
+  - {id: eu.same_means, kind: same_means, when: {region: EU}, expr: "same_means or consent", source: eu-2011-83-art13, owner: legal}
+  - {id: eu.withhold_until_return, kind: transition, when: {region: EU}, expr: "returned or amount == 0", effect: permit, source: eu-2011-83-art13, owner: legal}
+  - {id: eu.keep_surcharge, kind: bound, when: {region: EU}, expr: "amount + refunded <= charged - surcharge", effect: permit, source: eu-2011-83-art13, owner: legal}
+  - {id: br.withdrawal_7_days, kind: deadline, when: {region: BR}, expr: "days <= 7", source: br-cdc-art49, owner: legal}
+  - {id: visa.same_credential, kind: same_means, when: {method: card}, expr: "same_means or credential_closed", source: visa-credit-same-credential, owner: payments}
+  - {id: visa.no_orphan_credit, kind: transition, when: {method: card}, expr: "charged > 0", source: visa-no-orphan-credit, owner: payments}
+  - {id: psp.original_method, kind: same_means, when: {}, expr: "same_means", source: stripe-refunds, owner: payments}
+  - {id: psp.no_refund_in_dispute, kind: transition, when: {}, expr: "not (disputed and amount > 0)", source: stripe-dispute-refund-conflict, owner: payments}
+  - {id: psp.boleto_to_bank, kind: same_means, when: {method: boleto}, expr: "not same_means", source: stripe-refunds, owner: payments}
+  - {id: policy.store_credit, kind: same_means, when: {method: voucher}, expr: "not same_means", source: "store policy, retail team", owner: retail}
+  # what the outside world may do: banks open disputes inside these windows, providers fail refunds after accepting them
+  - {id: env.reg_e_dispute_60_days, kind: env, when: {region: US}, expr: "days <= 60 or not disputed", source: reg-e-1005-11, owner: legal}
+  - {id: env.reg_z_resolve_90_days, kind: env, when: {region: US, method: card}, expr: "days <= 90 or not disputed", source: reg-z-1026-13, owner: legal}
+  - {id: env.psd2_refund_8_weeks, kind: env, when: {region: EU, method: sepa_debit}, expr: "days <= 56 or not disputed", source: psd2-art77, owner: legal}
+  - {id: env.psd2_unauthorised_13_months, kind: env, when: {region: EU}, expr: "days <= 395 or not disputed", source: psd2-art71, owner: legal}
+  - {id: env.late_refund_failure, kind: env, when: {}, expr: "refunded <= charged", source: stripe-refunds, owner: payments}

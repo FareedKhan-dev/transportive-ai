@@ -1,0 +1,14 @@
+id: D5
+kind: dev
+slug: dispute-dev
+class: refund_in_dispute
+source: stripe:charge_disputed
+context:
+  region: US
+  method: card
+  contract: standard
+ambiguous: false
+conflict: false
+text: A US card refund can be requested after the charge was disputed. Refuse it and point to the dispute.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: 95a736bdbf00a145c6b13f008a64e845e6a0a494

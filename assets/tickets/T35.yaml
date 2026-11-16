@@ -1,0 +1,16 @@
+id: T35
+kind: feature
+slug: installment-refund
+class: rounding_drift
+source: allocate-never-divide
+context:
+  region: BR
+  method: card
+  contract: standard
+outputs:
+- amount
+ambiguous: true
+conflict: false
+text: Refund a Brazilian card order paid in installments across the remaining installments, with no minor unit lost.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: 6934f3b619eff2bd18a4ba16ea36c7d6aec27635

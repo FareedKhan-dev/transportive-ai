@@ -1,0 +1,201 @@
+{
+ "spec": {
+  "rules": 30,
+  "cases": 9,
+  "fingerprint": "a04a25b0c560",
+  "version": "1.0"
+ },
+ "recover": {
+  "drafts": 18,
+  "kept": 15,
+  "dropped": 3,
+  "dropped_ids": [
+   "eu.reimburse_30_days",
+   "visa.any_credential",
+   "psp.cancel_succeeded_refund"
+  ]
+ },
+ "contexts": {
+  "go": 20,
+  "clarify": 4,
+  "reject": 0
+ },
+ "t01_pack": {
+  "decision": "go",
+  "case": "standard_purchase",
+  "rules": [
+   "code.allocated_matches_rows",
+   "code.charged_matches_events",
+   "code.event_dedupe",
+   "code.event_idempotency",
+   "code.item_idempotency",
+   "code.item_lock_order",
+   "code.minor_units",
+   "code.payment_row_lock",
+   "code.refund_needs_charge",
+   "code.refund_positive",
+   "code.refund_within_charged",
+   "code.refunded_not_negative",
+   "code.release_needs_charge",
+   "code.release_once",
+   "env.late_refund_failure",
+   "psp.no_refund_in_dispute",
+   "psp.original_method",
+   "standard_purchase.duplicate_execution",
+   "standard_purchase.refund_policy",
+   "visa.no_orphan_credit",
+   "visa.same_credential"
+  ]
+ },
+ "t01_rules": 21,
+ "gap_contexts": 4,
+ "diff": {
+  "changed": [
+   "EU/sepa_debit/standard",
+   "US/sepa_debit/standard",
+   "US/sepa_debit/subscription",
+   "BR/sepa_debit/standard",
+   "BR/sepa_debit/subscription"
+  ],
+  "of": 24,
+  "v11_fingerprint": "c04c3b5e2e21",
+  "v11_version": "1.1",
+  "tickets": [
+   "T07",
+   "T21"
+  ]
+ },
+ "diff_changed": 5,
+ "gate": {
+  "asked": [
+   "T10",
+   "T16",
+   "T22",
+   "T25",
+   "T26",
+   "T27",
+   "T29",
+   "T31",
+   "T33",
+   "T34",
+   "T36"
+  ],
+  "flagged": [
+   "T28",
+   "T30",
+   "T32",
+   "T33",
+   "T34"
+  ],
+  "decisions": {
+   "T01": "go",
+   "T02": "go",
+   "T03": "go",
+   "T04": "go",
+   "T05": "go",
+   "T06": "go",
+   "T07": "go",
+   "T08": "go",
+   "T09": "go",
+   "T10": "clarify",
+   "T11": "go",
+   "T12": "go",
+   "T13": "go",
+   "T14": "go",
+   "T15": "go",
+   "T16": "clarify",
+   "T17": "go",
+   "T18": "go",
+   "T19": "go",
+   "T20": "go",
+   "T21": "go",
+   "T22": "clarify",
+   "T23": "go",
+   "T24": "go",
+   "T25": "clarify",
+   "T26": "clarify",
+   "T27": "clarify",
+   "T28": "reject",
+   "T29": "clarify",
+   "T30": "reject",
+   "T31": "clarify",
+   "T32": "reject",
+   "T33": "reject",
+   "T34": "reject",
+   "T35": "go",
+   "T36": "clarify"
+  }
+ },
+ "model": {
+  "pinned": {
+   "switches": [
+    false,
+    false
+   ],
+   "states": 88,
+   "depth": 8
+  },
+  "patched": {
+   "switches": [
+    true,
+    true
+   ],
+   "states": 120,
+   "depth": null
+  },
+  "lock_only": {
+   "switches": [
+    true,
+    false
+   ],
+   "states": 86,
+   "depth": 8
+  },
+  "recheck_only": {
+   "switches": [
+    false,
+    true
+   ],
+   "states": 104,
+   "depth": 8
+  }
+ },
+ "mutation": {
+  "mutants": 39,
+  "boundaries": 0,
+  "equivalent": 5,
+  "kill_order": [
+   "survived",
+   "ring 3",
+   "ring 1",
+   "ring 4",
+   "ring 2"
+  ],
+  "kill": {
+   "survived": 6,
+   "ring 3": 10,
+   "ring 1": 16,
+   "ring 4": 6,
+   "ring 2": 1
+  },
+  "survivor": "128 no order_id"
+ },
+ "holonomy": {
+  "amount": 100.0,
+  "divide": "-0.01",
+  "split": "0.00"
+ },
+ "patch": {
+  "added": 13,
+  "removed": 0,
+  "pin_blob": "47571b9"
+ },
+ "fragments": {
+  "recovered": "saleor/payment/gateway.py:540    bound         forbid   amount <= 0\nsaleor/payment/gateway.py:542    bound         forbid   amount > payment.captured_amount\nsaleor/payment/tasks.py:130      at_most_once  forbid   fresh key per call\nsaleor/payment/tasks.py:143      at_most_once  forbid   fresh key per call",
+  "index": "tasks.py:32   replica read  settings.DATABASE_CONNECTION_REPLICA_NAME\ntasks.py:61   replica read  settings.DATABASE_CONNECTION_REPLICA_NAME\ntasks.py:75   replica read  settings.DATABASE_CONNECTION_REPLICA_NAME\ntasks.py:105  replica read  settings.DATABASE_CONNECTION_REPLICA_NAME\ntasks.py:130  fresh key     uuid4\ntasks.py:143  fresh key     uuid4\ntasks.py:153  transaction   atomic\ntasks.py:154  bulk insert   bulk_create",
+  "deliver_effects": "33   replica read  settings.DATABASE_CONNECTION_REPLICA_NAME\n62   replica read  settings.DATABASE_CONNECTION_REPLICA_NAME\n76   replica read  settings.DATABASE_CONNECTION_REPLICA_NAME\n106  replica read  settings.DATABASE_CONNECTION_REPLICA_NAME\n115  transaction   atomic\n118  row lock      transaction_item_qs_select_for_update\n143  fresh key     uuid4\n156  fresh key     uuid4\n166  transaction   atomic\n167  bulk insert   bulk_create",
+  "impact_line1": "1.1 c04c3b5e2e21 ['EU/sepa_debit/standard', 'US/sepa_debit/standard', 'US/sepa_debit/subscription', 'BR/sepa_debit/standard', 'BR/sepa_debit/subscription']",
+  "migration": "from django.contrib.postgres.operations import AddConstraintNotValid\nfrom django.db import migrations, models\n\n\nclass Migration(migrations.Migration):\n    dependencies = [(\"payment\", \"0072_transaction_date_indexes\")]\n    operations = [\n        AddConstraintNotValid(model_name=\"transactionitem\", constraint=models.CheckConstraint(\n            condition=models.Q(charged_value__gte=0), name=\"guard_code_refund_within_charged\")),\n        AddConstraintNotValid(model_name=\"transactionitem\", constraint=models.CheckConstraint(\n            condition=models.Q(refunded_value__gte=0), name=\"guard_code_refunded_not_negative\")),\n    ]",
+  "patch_u0": "diff --git a/saleor/payment/tasks.py b/saleor/payment/tasks.py\nindex 47571b9..02496a7 100644\n--- a/saleor/payment/tasks.py\n+++ b/saleor/payment/tasks.py\n@@ -18,0 +19 @@ from .gateway import request_cancelation_action, request_refund_action\n+from .lock_objects import transaction_item_qs_select_for_update\n@@ -113,0 +115,12 @@ def transaction_release_funds_for_checkout_task():\n+        with transaction.atomic():\n+            # lock in pk order on the writer, recheck, claim (#19812)\n+            transaction_pks = list(\n+                transaction_item_qs_select_for_update()\n+                .filter(\n+                    pk__in=transaction_pks, order_id=None, last_refund_success=True\n+                )\n+                .values_list(\"pk\", flat=True)\n+            )\n+            TransactionItem.objects.filter(pk__in=transaction_pks).update(\n+                last_refund_success=False\n+            )"
+ }
+}

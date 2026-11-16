@@ -1,0 +1,14 @@
+id: T08
+kind: replay
+slug: retry-new-key-us
+class: duplicate_transfer
+source: medusa#16681
+context:
+  region: US
+  method: card
+  contract: standard
+ambiguous: false
+conflict: false
+text: When the payment app's answer to a US card refund request is lost, the retry goes out under a new idempotency key and the provider can refund twice. A retried request must keep its key.
+bug_commit: f8838b4a68367cd79c3408d95748c2d48fa5ab9e
+fix_commit: 4a53eb76a098131f501198c615122bc4f4ab009b

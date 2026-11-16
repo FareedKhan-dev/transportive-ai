@@ -1,0 +1,145 @@
+# law_drafts.yaml: rules drafted from law, card network and provider texts, each with the quote it rests on.
+# recover.draft keeps a draft only when its quote appears in assets/refs/<source>.txt word for word.
+- id: eu.reimburse_14_days
+  kind: deadline
+  when:
+    region: EU
+  expr: days <= 14
+  effect: require
+  source: eu-2011-83-art13
+  quote: without undue delay and in any event not later than 14 days from the day on which he is informed of the consumer’s decision to withdraw
+- id: eu.same_means
+  kind: same_means
+  when:
+    region: EU
+  expr: same_means or consent
+  effect: require
+  source: eu-2011-83-art13
+  quote: using the same means of payment as the consumer used for the initial transaction, unless the consumer has expressly agreed otherwise
+- id: eu.withhold_until_return
+  kind: transition
+  when:
+    region: EU
+  expr: returned or amount == 0
+  effect: permit
+  source: eu-2011-83-art13
+  quote: the trader may withhold the reimbursement until he has received the goods back, or until the consumer has supplied evidence of having sent back the goods, whichever is the earliest
+- id: eu.keep_surcharge
+  kind: bound
+  when:
+    region: EU
+  expr: amount + refunded <= charged - surcharge
+  effect: permit
+  source: eu-2011-83-art13
+  quote: the trader shall not be required to reimburse the supplementary costs, if the consumer has expressly opted for a type of delivery other than the least expensive type of standard delivery offered
+    by the trader
+- id: br.withdrawal_7_days
+  kind: deadline
+  when:
+    region: BR
+  expr: days <= 7
+  effect: require
+  source: br-cdc-art49
+  quote: O consumidor pode desistir do contrato, no prazo de 7 dias a contar de sua assinatura ou do ato de recebimento do produto ou serviço
+- id: visa.same_credential
+  kind: same_means
+  when:
+    method: card
+  expr: same_means or credential_closed
+  effect: require
+  source: visa-credit-same-credential
+  quote: To the extent possible, the Merchant must process a Credit Transaction³ to the same Payment Credential as used in the original Transaction.
+- id: visa.no_orphan_credit
+  kind: transition
+  when:
+    method: card
+  expr: charged > 0
+  effect: require
+  source: visa-no-orphan-credit
+  quote: Process a Credit Transaction Receipt without having completed a previous retail Transaction with the same Cardholder
+- id: psp.original_method
+  kind: same_means
+  when: {}
+  expr: same_means
+  effect: require
+  source: stripe-refunds
+  quote: Refunds can only be sent back to the original payment method used in a charge.
+- id: psp.no_refund_in_dispute
+  kind: transition
+  when: {}
+  expr: not (disputed and amount > 0)
+  effect: require
+  source: stripe-dispute-refund-conflict
+  quote: You can’t issue a refund outside the dispute process while the dispute is open.
+- id: psp.boleto_to_bank
+  kind: same_means
+  when:
+    method: boleto
+  expr: not same_means
+  effect: require
+  source: stripe-refunds
+  quote: Stripe needs to collect bank account details from your customer before it can process the refund.
+- id: env.reg_e_dispute_60_days
+  kind: env
+  when:
+    region: US
+  expr: days <= 60 or not disputed
+  effect: require
+  source: reg-e-1005-11
+  quote: no later than 60 days after the institution sends the periodic statement
+- id: env.reg_z_resolve_90_days
+  kind: env
+  when:
+    region: US
+    method: card
+  expr: days <= 90 or not disputed
+  effect: require
+  source: reg-z-1026-13
+  quote: within 2 complete billing cycles (but in no event later than 90 days) after receiving a billing error notice
+- id: env.psd2_refund_8_weeks
+  kind: env
+  when:
+    region: EU
+    method: sepa_debit
+  expr: days <= 56 or not disputed
+  effect: require
+  source: psd2-art77
+  quote: for a period of 8 weeks from the date on which the funds were debited
+- id: env.psd2_unauthorised_13_months
+  kind: env
+  when:
+    region: EU
+  expr: days <= 395 or not disputed
+  effect: require
+  source: psd2-art71
+  quote: no later than 13 months after the debit date
+- id: env.late_refund_failure
+  kind: env
+  when: {}
+  expr: refunded <= charged
+  effect: require
+  source: stripe-refunds
+  quote: A refund can fail if the customer’s bank or card issuer can’t process it.
+- id: eu.reimburse_30_days
+  kind: deadline
+  when:
+    region: EU
+  expr: days <= 30
+  effect: require
+  source: eu-2011-83-art13
+  quote: not later than 30 days from the day on which he is informed of the consumer’s decision to withdraw
+- id: visa.any_credential
+  kind: same_means
+  when:
+    method: card
+  expr: not same_means or same_means
+  effect: require
+  source: visa-credit-same-credential
+  quote: the Merchant may process the Credit Transaction to any Payment Credential the Cardholder chooses
+- id: psp.cancel_succeeded_refund
+  kind: transition
+  when: {}
+  expr: refunded >= 0
+  effect: require
+  source: stripe-refunds
+  quote: A succeeded refund can be canceled and the funds returned to your balance at any time.

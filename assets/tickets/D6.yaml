@@ -1,0 +1,14 @@
+id: D6
+kind: dev
+slug: wrong-method-dev
+class: wrong_method
+source: stripe:original-method
+context:
+  region: EU
+  method: card
+  contract: standard
+ambiguous: false
+conflict: false
+text: An EU card refund can be sent to a different card than the one charged. Send it back to the original card.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: f02fd0d670b68cc4a687584b57ecbe7414989a3d

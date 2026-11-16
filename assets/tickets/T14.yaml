@@ -1,0 +1,14 @@
+id: T14
+kind: replay
+slug: unbounded-refund-us
+class: over_refund
+source: oscar#4580
+context:
+  region: US
+  method: card
+  contract: standard
+ambiguous: false
+conflict: false
+text: A US card refund request can ask for more than the transaction has left to refund. Refuse any refund that would go past the charged amount.
+bug_commit: 76dba19dabb39590d33801fb21433253ca3572db
+fix_commit: 3533930f89733cb10725310f724f064da69ca175

@@ -1,0 +1,16 @@
+id: T36
+kind: feature
+slug: capture-then-cancel
+class: over_refund
+source: saleor:cancel
+context:
+  region: US
+  method: card
+  contract: standard
+outputs:
+- cancel_after_capture
+ambiguous: true
+conflict: false
+text: Cancelling a US card order after its capture must refund the captured amount once, and never more than is left to refund.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: d6c12c086093297ad3520c0e87672b7e48c11086

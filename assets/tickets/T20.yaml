@@ -1,0 +1,14 @@
+id: T20
+kind: replay
+slug: refund-in-dispute-us
+class: refund_in_dispute
+source: stripe:charge_for_pending_refund_disputed
+context:
+  region: US
+  method: card
+  contract: standard
+ambiguous: false
+conflict: false
+text: A US card refund can go out while a dispute is open, and the customer can be credited twice. Block refunds outside the dispute process while a dispute is open.
+bug_commit: 8d4fbe8d729be7a75d67dff59a9a0e10295e1aec
+fix_commit: ec5189d8a46bbb4413c326f5fc8130585072bff9

@@ -1,0 +1,9 @@
+id: D-001
+owner: payments
+kind: scope
+when:
+  method: card
+expr: same_means
+question: psp.original_method collides with psp.boleto_to_bank in every boleto context, and with policy.store_credit for vouchers.
+answer: The provider's original-method rule covers card payments only.
+change: 'psp.original_method gets when: {method: card}'

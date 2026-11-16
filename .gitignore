@@ -1,0 +1,10 @@
+__pycache__/
+.venv/
+.ipynb_checkpoints/
+.env
+saleor/
+rooms/
+data/*
+!data/.gitkeep
+results/journal/
+results/ledger.db

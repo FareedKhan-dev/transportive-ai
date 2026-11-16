@@ -1,0 +1,14 @@
+id: D7
+kind: dev
+slug: deadline-dev
+class: deadline_breach
+source: br-cdc-art49
+context:
+  region: BR
+  method: boleto
+  contract: standard
+ambiguous: false
+conflict: false
+text: Brazilian boleto orders must accept a withdrawal refund within 7 days of receiving the goods.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: 085795aed941e5abb4ec772151479cd5d341fe65

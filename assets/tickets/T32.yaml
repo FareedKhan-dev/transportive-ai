@@ -1,0 +1,16 @@
+id: T32
+kind: feature
+slug: dispute-block
+class: refund_in_dispute
+source: stripe+eu-2011-83-art13
+context:
+  region: EU
+  method: card
+  contract: standard
+demands:
+- disputed and amount > 0
+ambiguous: false
+conflict: true
+text: Let support refund an EU card order while its dispute is still open, when the customer asks for it.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: 85ae26d090212c1c08da57db0d1b705e3c214cb0

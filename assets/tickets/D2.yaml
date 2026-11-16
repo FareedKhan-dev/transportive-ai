@@ -1,0 +1,14 @@
+id: D2
+kind: dev
+slug: retry-new-key-dev
+class: duplicate_transfer
+source: medusa#16681
+context:
+  region: US
+  method: card
+  contract: standard
+ambiguous: false
+conflict: false
+text: A lost answer to a US card refund request makes the retry use a new idempotency key. A retry must keep its key.
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: 2386cd4dfbebc36d6a2cc4a7c3310304e4465bad

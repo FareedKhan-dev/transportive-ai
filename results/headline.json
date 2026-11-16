@@ -1,0 +1,38 @@
+{
+ "a4_qwen_pass_pct": {
+  "v": 83.333333,
+  "provisional": true
+ },
+ "a4_opus_pass_pct": {
+  "v": 91.666667,
+  "provisional": true
+ },
+ "a1_opus_pass_pct": {
+  "v": 47.222222,
+  "provisional": true
+ },
+ "a1_qwen_pass_pct": {
+  "v": 33.333333,
+  "provisional": true
+ },
+ "a4_double_refunds": {
+  "v": 0,
+  "provisional": true
+ },
+ "a1_double_refunds": {
+  "v": 14,
+  "provisional": true
+ },
+ "a1_opus_gw_pct": {
+  "v": 45.16129,
+  "provisional": true
+ },
+ "h6_p": {
+  "v": 0.000977,
+  "provisional": true
+ },
+ "sealed": {
+  "v": 36,
+  "provisional": true
+ }
+}

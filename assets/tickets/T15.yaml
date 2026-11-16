@@ -1,0 +1,14 @@
+id: T15
+kind: replay
+slug: unbounded-refund-br
+class: over_refund
+source: oscar#4580
+context:
+  region: BR
+  method: boleto
+  contract: standard
+ambiguous: false
+conflict: false
+text: A Brazilian boleto refund request can ask for more than the transaction has left to refund. Refuse any refund that would go past the charged amount.
+bug_commit: 830be47228c8e13abf870f2ad77fee5f0439abb1
+fix_commit: 9a7f0a5a8e81a07f9a31d2433bb52ced0586acfd

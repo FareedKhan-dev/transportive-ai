@@ -1,0 +1,16 @@
+id: T25
+kind: feature
+slug: eu-withdrawal-deadline
+class: deadline_breach
+source: eu-2011-83-art13
+context:
+  region: EU
+  method: card
+  contract: standard
+outputs:
+- deadline_start
+ambiguous: true
+conflict: false
+text: 'Add the EU withdrawal refund for card orders: reimburse within 14 days of being told of the withdrawal.'
+bug_commit: 4cb1609a90eade14b6275a407bc7a00c35698090
+fix_commit: 0729bad76baec822387b99503bbaf7477b93823c
